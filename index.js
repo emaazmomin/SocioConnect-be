@@ -8,14 +8,18 @@ dotenv.config();
 
 const app = express();
 app.use(cors());
-// Middleware
+app.get("/", (req, res) => {
+  res.send({ Success: "Working" });
+});
 app.use(express.json());
 app.use("/auth", instagramRoutes);
 
 const PORT = process.env.PORT || 5000;
 // Connect to MongoDB and start the server
 mongoose
-  .connect("mongodb+srv://mominemaz:KLJK8798kjkj@cluster0.gapl5.mongodb.net/socio_connect?retryWrites=true&w=majority&appName=Cluster0")
+  .connect(
+    "mongodb+srv://mominemaz:KLJK8798kjkj@cluster0.gapl5.mongodb.net/socio_connect?retryWrites=true&w=majority&appName=Cluster0"
+  )
   .then(() => {
     console.log("MongoDB connected to Database");
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
