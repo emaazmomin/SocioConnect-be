@@ -17,9 +17,7 @@ app.use("/auth", instagramRoutes);
 const PORT = process.env.PORT || 5000;
 
 mongoose
-  .connect(
-    "mongodb+srv://mominemaz:KLJK8798kjkj@cluster0.gapl5.mongodb.net/socio_connect?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(process.env.DATABASE)
   .then(() => {
     console.log("MongoDB connected to Database");
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
