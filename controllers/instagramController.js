@@ -5,11 +5,10 @@ import User_token from "../model/user_token.js";
 
 dotenv.config();
 
-const { INSTAGRAM_APP_ID, INSTAGRAM_APP_SECRET } = process.env;
+const { INSTAGRAM_APP_ID, INSTAGRAM_APP_SECRET,FRONTEND_URL,REDIRECT_URI } = process.env;
 
-const REDIRECT_URI =
-  "https://5578-103-116-239-162.ngrok-free.app/auth/instagram/callback";
-const FRONTEND_URL = "http://localhost:5173";
+// const REDIRECT_URI =
+//   "https://5578-103-116-239-162.ngrok-free.app/auth/instagram/callback";
 
 export const loginWithInstagram = (req, res) => {
   const authUrl = `https://www.instagram.com/oauth/authorize?client_id=${INSTAGRAM_APP_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=instagram_business_basic,instagram_business_manage_messages,instagram_business_manage_comments,instagram_business_content_publish`;
